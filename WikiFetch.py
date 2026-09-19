@@ -28,9 +28,14 @@ class WikiFetch:
 
         wikipediaUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&pageids=" + str(page_id) + "&explaintext&format=json"        
 
+        request = urllib.request.Request(
+            wikipediaUrl,
+            headers={"User-Agent": "WikiFetch/1.0 (educational project)"}
+        )
+
         try:
             #Connect with the remote server            
-            with urllib.request.urlopen(wikipediaUrl) as url:
+            with urllib.request.urlopen(request) as url:
 
             #Get the json downloaded and parsed into a dictionary
                 data = json.loads(url.read().decode())

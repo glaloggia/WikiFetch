@@ -16,7 +16,7 @@ class TestGetJson(unittest.TestCase):
 			WikiFetch._getJson(None,"gabriel")
 
 	#Test a decimal number:
-	def test_bellowZero(self):
+	def test_decimalNumber(self):
 		with self.assertRaises(MissingPage):
 			WikiFetch._getJson(None,3.14)
 
